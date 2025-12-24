@@ -41,7 +41,7 @@ export const projects: Project[] = [
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Node.js"],
     featured: true,
     links: {
-      live: "https://youtu.be/CAJI71hrWQE",
+      live: "/polybookshop-demo.mp4",
       github: "https://github.com/HussainHubail",
     },
     images: {
@@ -81,7 +81,7 @@ export const projects: Project[] = [
       "Project planning and documentation",
     ],
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Node.js", "Vercel"],
-    videoUrl: "https://youtu.be/CAJI71hrWQE",
+    videoUrl: "/polybookshop-demo.mp4",
     videoThumbnail: "/polybookshop-thumb.png",
   },
 ];
