@@ -1,0 +1,6 @@
+# Exclude large local media and demo recordings from deployment upload
+Demo/
+
+# Node/npm artifacts (usually ignored by default but safe to exclude)
+node_modules/
+*.log
