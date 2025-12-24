@@ -41,7 +41,7 @@ export const projects: Project[] = [
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Node.js"],
     featured: true,
     links: {
-      live: "https://portfolio-tau-murex-63.vercel.app/polybookshop-demo.mp4",
+      live: "https://youtu.be/CAJI71hrWQE",
       github: "https://github.com/HussainHubail",
     },
     images: {
@@ -81,7 +81,7 @@ export const projects: Project[] = [
       "Project planning and documentation",
     ],
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Node.js", "Vercel"],
-    videoUrl: "/polybookshop-demo.mp4",
+    videoUrl: "https://youtu.be/CAJI71hrWQE",
     videoThumbnail: "/polybookshop-thumb.png",
   },
 ];
