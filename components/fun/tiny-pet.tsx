@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useScrollPosition } from "@/hooks/useScrollPosition";
 import { isFunEnabled } from "@/config/funFlags";
 import { X } from "lucide-react";
@@ -18,6 +18,7 @@ export function TinyPet() {
   const [visible, setVisible] = useState(false);
   const [expression, setExpression] = useState<keyof typeof expressions>("default");
   const scrollY = useScrollPosition();
+  const longPressRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     if (!isFunEnabled('tinyPet')) return;
@@ -51,22 +52,40 @@ export function TinyPet() {
     localStorage.setItem("tiny-pet-dismissed", "true");
   };
 
+  const handleLongPress = () => {
+    handleDismiss();
+  };
+
+  const handleMouseDown = () => {
+    longPressRef.current = setTimeout(() => {
+      handleLongPress();
+    }, 200);
+  };
+
+  const handleMouseUp = () => {
+    if (longPressRef.current) clearTimeout(longPressRef.current);
+  };
+
   if (!visible) return null;
 
   return (
-    <div className="fixed left-4 top-1/2 -translate-y-1/2 z-30 flex items-center gap-2 group">
+    <div className="fixed left-4 top-1/2 -translate-y-1/2 z-20 flex items-center gap-2 group pointer-events-none">
       <button
         onClick={handleClick}
-        className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 hover:from-purple-500 hover:to-pink-500 transition-all shadow-lg flex items-center justify-center text-2xl hover:scale-110 active:scale-95"
+        onMouseDown={handleMouseDown}
+        onMouseUp={handleMouseUp}
+        onTouchStart={handleMouseDown}
+        onTouchEnd={handleMouseUp}
+        className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 hover:from-purple-500 hover:to-pink-500 transition-all shadow-lg flex items-center justify-center text-2xl hover:scale-110 active:scale-95 pointer-events-auto"
         aria-label="Tiny pet companion"
-        title="Click me!"
+        title="Click me! Long-press to hide."
       >
         {expressions[expression]}
       </button>
       
       <button
         onClick={handleDismiss}
-        className="w-5 h-5 rounded-full bg-destructive text-destructive-foreground flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+        className="w-5 h-5 rounded-full bg-destructive text-destructive-foreground flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity pointer-events-auto"
         aria-label="Dismiss pet"
       >
         <X className="w-3 h-3" />
