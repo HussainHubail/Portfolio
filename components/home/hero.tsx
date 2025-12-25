@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Download, Mail, Github, Linkedin, ExternalLink, FileText } from "lucide-react";
+import { ArrowDown, Download, Mail, Phone, Linkedin, ExternalLink, FileText } from "lucide-react";
 import { profile } from "@/content/profile";
 import Link from "next/link";
 import { SpotlightCursor } from "@/components/effects/spotlight-cursor";
@@ -114,15 +114,13 @@ export function Hero() {
             variants={itemVariants}
             className="flex items-center justify-center gap-4"
           >
-            {profile.social.github && (
+            {profile.phone && (
               <a
-                href={profile.social.github}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={`tel:${profile.phone}`}
                 className="w-12 h-12 rounded-full border flex items-center justify-center hover:bg-accent hover:border-primary transition-all hover:scale-110"
-                aria-label="GitHub"
+                aria-label="Call Me"
               >
-                <Github className="w-5 h-5" />
+                <Phone className="w-5 h-5" />
               </a>
             )}
             {profile.social.linkedin && (

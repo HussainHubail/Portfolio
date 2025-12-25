@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Github, Linkedin, Twitter, Mail, Heart } from "lucide-react";
+import { Phone, Linkedin, Twitter, Mail, Heart } from "lucide-react";
 import { CopyButton } from "@/components/ui/copy-button";
 import { profile } from "@/content/profile";
 import { GravityToggle } from "@/components/fun/gravity-toggle";
@@ -8,11 +8,11 @@ import { ComplimentGenerator } from "@/components/fun/compliment-generator";
 import { FunModeToggle } from "@/components/fun/fun-mode-toggle";
 
 const socialLinks = [
-  { name: "GitHub", href: profile.social.github, icon: Github },
+  profile.phone && { name: "Call", href: `tel:${profile.phone}`, icon: Phone },
   { name: "LinkedIn", href: profile.social.linkedin, icon: Linkedin },
   profile.social.twitter && { name: "Twitter", href: profile.social.twitter, icon: Twitter },
   { name: "Email", href: `mailto:${profile.email}`, icon: Mail },
-].filter(Boolean) as { name: string; href: string; icon: typeof Github }[];
+].filter(Boolean) as { name: string; href: string; icon: typeof Phone }[];
 
 const footerLinks = [
   {

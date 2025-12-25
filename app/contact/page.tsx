@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/toast";
-import { Mail, Linkedin, Github, MapPin, Send, Phone } from "lucide-react";
+import { Mail, Linkedin, Phone, MapPin, Send, Phone as PhoneIcon } from "lucide-react";
 import { profile } from "@/content/profile";
 
 export default function ContactPage() {
@@ -131,16 +131,16 @@ export default function ContactPage() {
       href: null,
     },
     {
+      icon: PhoneIcon,
+      label: "Phone",
+      value: profile.phone || "Contact me",
+      href: profile.phone ? `tel:${profile.phone}` : null,
+    },
+    {
       icon: Linkedin,
       label: "LinkedIn",
       value: "Connect on LinkedIn",
       href: profile.social.linkedin,
-    },
-    {
-      icon: Github,
-      label: "GitHub",
-      value: "View my code",
-      href: profile.social.github,
     },
   ];
 
