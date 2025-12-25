@@ -45,7 +45,7 @@ export const projects: Project[] = [
       github: "https://github.com/HussainHubail",
     },
     images: {
-      hero: "https://images.unsplash.com/photo-1507842217343-583b8c9b4f6b?w=1200&h=600&fit=crop",
+      hero: "/polybookshop-thumb.png",
       gallery: [],
     },
     problem: "Bahrain Polytechnic University library needed a modern digital system to manage physical book loans, provide access to online PDF books, and streamline library operations.",
