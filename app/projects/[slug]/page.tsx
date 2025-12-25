@@ -82,8 +82,8 @@ export default function ProjectPage({ params }: ProjectPageProps) {
     <>
       {/* Hero + Main Content with Background Image */}
       <section className="relative">
-        {/* Background Image */}
-        <div className="fixed top-0 left-0 w-full h-screen -z-10">
+        {/* Background Image - only visible in hero section */}
+        <div className="absolute top-0 left-0 w-full h-screen -z-10 pointer-events-none">
           <Image
             src={project.images.hero}
             alt={project.title}
@@ -91,7 +91,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/80" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/70 to-background" />
         </div>
 
         {/* Hero Section */}
@@ -109,8 +109,8 @@ export default function ProjectPage({ params }: ProjectPageProps) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <h1 className="text-4xl md:text-6xl font-bold mb-4">{project.title}</h1>
-              <p className="text-xl text-white/90 mb-6 max-w-3xl">{project.longDescription}</p>
+              <h1 className="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">{project.title}</h1>
+              <p className="text-xl text-white/95 mb-6 max-w-3xl drop-shadow-md">{project.longDescription}</p>
 
               <div className="flex flex-wrap items-center gap-3 mb-4">
                 {demoVideoUrl ? (
@@ -128,13 +128,13 @@ export default function ProjectPage({ params }: ProjectPageProps) {
               </div>
               
               <div className="flex flex-wrap items-center gap-4">
-                <div className="flex items-center gap-2 text-sm">
+                <div className="flex items-center gap-2 text-sm drop-shadow">
                   <span className="font-medium">Role:</span>
-                  <span className="text-white/80">{project.role}</span>
+                  <span className="text-white/90">{project.role}</span>
                 </div>
-                <div className="flex items-center gap-2 text-sm">
+                <div className="flex items-center gap-2 text-sm drop-shadow">
                   <span className="font-medium">Year:</span>
-                  <span className="text-white/80">{project.year}</span>
+                  <span className="text-white/90">{project.year}</span>
                 </div>
               </div>
             </motion.div>
@@ -142,7 +142,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         </section>
 
         {/* Quick Links */}
-        <Section className="bg-black/40 backdrop-blur-sm py-8">
+        <Section className="bg-background/80 backdrop-blur-sm py-8 relative z-20">
           <div className="flex flex-wrap gap-4 justify-center">
             {project.links.live && (
               <Button size="lg" asChild>
@@ -164,7 +164,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         </Section>
 
         {/* Main Content */}
-        <Section className="bg-background/95 backdrop-blur-md">
+        <Section className="bg-background relative z-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             {/* Left Column - Details */}
             <div className="lg:col-span-8 space-y-12">
