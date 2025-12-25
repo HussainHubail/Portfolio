@@ -9,6 +9,9 @@ import { ScrollProgressBar } from "@/components/layout/scroll-progress-bar";
 import { BackToTop } from "@/components/layout/back-to-top";
 import { AnimatedAccent } from "@/components/layout/animated-accent";
 import { profile } from "@/content/profile";
+import { HashDeepLinkHandler } from "@/hooks/useHashDeepLink";
+import { KonamiMode } from "@/components/effects/konami-mode";
+import { features } from "@/config/features";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -96,12 +99,14 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="relative flex min-h-screen flex-col">
-            <ScrollProgressBar />
-            <AnimatedAccent />
+            {features.scrollProgressBar && <ScrollProgressBar />}
+            {features.animatedAccent && <AnimatedAccent />}
+            {features.konamiMode && <KonamiMode />}
+            {features.hashDeepLinks && <HashDeepLinkHandler />}
             <Navbar />
             <main className="flex-1">{children}</main>
             <Footer />
-            <BackToTop />
+            {features.backToTop && <BackToTop />}
           </div>
           <CommandPalette />
         </ThemeProvider>

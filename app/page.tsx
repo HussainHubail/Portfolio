@@ -16,7 +16,7 @@ export default function Home() {
         <Highlights />
       </Section>
 
-      <Section>
+      <Section id="project-demo">
         <SectionHeader
           title="Featured Projects"
           description="A showcase of my recent work and notable achievements"

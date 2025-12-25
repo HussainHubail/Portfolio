@@ -172,3 +172,13 @@
   outline: none;
   box-shadow: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--ring));
 }
+
+/* Konami mode subtle accent shift */
+html.konami-mode {
+  --primary: 280 100% 60%;
+  --accent: 280 100% 90%;
+}
+html.dark.konami-mode {
+  --primary: 280 100% 70%;
+  --accent: 280 80% 25%;
+}

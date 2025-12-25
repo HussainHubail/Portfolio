@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowDown, Download, Mail, Github, Linkedin, ExternalLink, FileText } from "lucide-react";
 import { profile } from "@/content/profile";
 import Link from "next/link";
+import { SpotlightCursor } from "@/components/effects/spotlight-cursor";
 
 export function Hero() {
   const containerVariants = {
@@ -28,6 +29,7 @@ export function Hero() {
 
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+      <SpotlightCursor />
       {/* Background Gradient */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-purple-500/5 to-background" />

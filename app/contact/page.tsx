@@ -145,7 +145,7 @@ export default function ContactPage() {
   ];
 
   return (
-    <Section className="pt-32 pb-16">
+    <Section id="contact" className="pt-32 pb-16">
       <SectionHeader
         title="Get in Touch"
         description="Have a question or want to collaborate? I'd love to hear from you!"
