@@ -199,8 +199,8 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                 {project.impact.map((item) => (
                   <Card key={item.metric}>
                     <CardContent className="pt-6 text-center">
-                      <div className="text-3xl font-bold text-primary mb-2">{item.value}</div>
-                      <div className="text-sm text-muted-foreground">{item.metric}</div>
+                      <div className="text-xl md:text-2xl font-bold text-primary mb-1">{item.value}</div>
+                      <div className="text-xs md:text-sm text-muted-foreground">{item.metric}</div>
                     </CardContent>
                   </Card>
                 ))}
