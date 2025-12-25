@@ -98,7 +98,7 @@ export const projects: Project[] = [
     role: "Full Stack Developer",
     year: "2025",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
-    featured: false,
+    featured: true,
     links: {
       live: "https://russian-virid.vercel.app/",
       github: "https://github.com/HussainHubail",
