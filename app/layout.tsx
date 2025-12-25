@@ -12,6 +12,12 @@ import { profile } from "@/content/profile";
 import { HashDeepLinkHandler } from "@/hooks/useHashDeepLink";
 import { KonamiMode } from "@/components/effects/konami-mode";
 import { features } from "@/config/features";
+import { SparkleTrail } from "@/components/fun/sparkle-trail";
+import { RubberDuck } from "@/components/fun/rubber-duck";
+import { ExtraEasterEggs } from "@/components/fun/extra-easter-eggs";
+import { MoodRing } from "@/components/fun/mood-ring";
+import { TinyPet } from "@/components/fun/tiny-pet";
+import { ScreenshotShake } from "@/components/fun/screenshot-shake";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -103,6 +109,15 @@ export default function RootLayout({
             {features.animatedAccent && <AnimatedAccent />}
             {features.konamiMode && <KonamiMode />}
             {features.hashDeepLinks && <HashDeepLinkHandler />}
+            
+            {/* Fun features */}
+            <SparkleTrail />
+            <RubberDuck />
+            <ExtraEasterEggs />
+            <MoodRing />
+            <TinyPet />
+            <ScreenshotShake />
+            
             <Navbar />
             <main className="flex-1">{children}</main>
             <Footer />

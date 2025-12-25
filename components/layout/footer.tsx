@@ -2,6 +2,10 @@ import Link from "next/link";
 import { Github, Linkedin, Twitter, Mail, Heart } from "lucide-react";
 import { CopyButton } from "@/components/ui/copy-button";
 import { profile } from "@/content/profile";
+import { GravityToggle } from "@/components/fun/gravity-toggle";
+import { RetroCRT } from "@/components/fun/retro-crt";
+import { ComplimentGenerator } from "@/components/fun/compliment-generator";
+import { FunModeToggle } from "@/components/fun/fun-mode-toggle";
 
 const socialLinks = [
   { name: "GitHub", href: profile.social.github, icon: Github },
@@ -94,13 +98,23 @@ export function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="pt-8 border-t flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-muted-foreground text-center sm:text-left">
-            © {currentYear} {profile.name}. All rights reserved.
-          </p>
-          <p className="text-sm text-muted-foreground flex items-center gap-1">
-            Made with <Heart className="w-4 h-4 text-red-500 fill-current" /> using Next.js & Tailwind CSS
-          </p>
+        <div className="pt-8 border-t">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-4">
+            <p className="text-sm text-muted-foreground text-center sm:text-left">
+              © {currentYear} {profile.name}. All rights reserved.
+            </p>
+            <p className="text-sm text-muted-foreground flex items-center gap-1">
+              Made with <Heart className="w-4 h-4 text-red-500 fill-current" /> using Next.js & Tailwind CSS
+            </p>
+          </div>
+          
+          {/* Fun Controls */}
+          <div className="flex flex-wrap items-center justify-center gap-2 pt-4 border-t">
+            <FunModeToggle />
+            <GravityToggle />
+            <RetroCRT />
+            <ComplimentGenerator />
+          </div>
         </div>
       </div>
     </footer>

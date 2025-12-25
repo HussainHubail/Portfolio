@@ -182,3 +182,34 @@ html.dark.konami-mode {
   --primary: 280 100% 70%;
   --accent: 280 80% 25%;
 }
+
+/* Retro CRT mode */
+html.retro-crt {
+  image-rendering: pixelated;
+  text-rendering: geometricPrecision;
+}
+
+html.retro-crt::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.03) 0px,
+      transparent 1px,
+      transparent 2px,
+      rgba(0, 0, 0, 0.03) 3px
+    );
+  z-index: 9998;
+}
+
+html.retro-crt::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 60%, rgba(0, 0, 0, 0.3) 100%);
+  z-index: 9998;
+}
