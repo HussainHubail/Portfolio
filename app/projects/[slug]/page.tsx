@@ -14,7 +14,7 @@ import { ArrowLeft, ExternalLink, Github, ChevronLeft, ChevronRight, X } from "l
 import { projects } from "@/content/projects";
 import { VideoDemo } from "@/components/project/video-demo";
 import { DeploymentInfo } from "@/components/project/deployment-info";
-import { DemoVideoModal, DEMO_VIDEO_URL } from "@/components/project/demo-video-modal";
+import { DemoVideoModal } from "@/components/project/demo-video-modal";
 
 interface ProjectPageProps {
   params: Promise<{
@@ -38,7 +38,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
   const allImages = [project.images.hero, ...project.images.gallery];
   const otherProjects = projects.filter((p) => p.slug !== project.slug).slice(0, 3);
-  const demoVideoUrl = project.videoUrl ?? DEMO_VIDEO_URL;
+  const demoVideoUrl = project.videoUrl;
   const demoType = demoVideoUrl ? demoVideoUrl.toLowerCase() : "";
   const isSupportedDemo =
     demoType.includes("youtube.com") ||
@@ -108,9 +108,18 @@ export default function ProjectPage({ params }: ProjectPageProps) {
             <p className="text-xl text-white/90 mb-6 max-w-3xl">{project.longDescription}</p>
 
             <div className="flex flex-wrap items-center gap-3 mb-4">
-              <Button size="lg" variant="secondary" onClick={handleOpenDemo} ref={demoButtonRef}>
-                Watch Demo
-              </Button>
+              {demoVideoUrl ? (
+                <Button size="lg" variant="secondary" onClick={handleOpenDemo} ref={demoButtonRef}>
+                  Watch Demo
+                </Button>
+              ) : project.links.live ? (
+                <Button size="lg" variant="secondary" asChild>
+                  <a href={project.links.live} target="_blank" rel="noopener noreferrer">
+                    <ExternalLink className="w-5 h-5" />
+                    Open Web App
+                  </a>
+                </Button>
+              ) : null}
             </div>
             
             <div className="flex flex-wrap items-center gap-4">
@@ -252,23 +261,33 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
           {/* Right Column - Sidebar */}
           <div className="lg:col-span-4 space-y-8">
-            <Button size="lg" variant="secondary" onClick={(e) => {
-              e.preventDefault();
-              // reflect state in URL for shareability
-              const params = new URLSearchParams(searchParams?.toString());
-              params.set("demo", "1");
-              router.replace(`${pathname}?${params.toString()}`);
-              setIsDemoOpen(true);
-            }}>
-              Watch Demo
-            </Button>
-            {/* Video Demo */}
-            <VideoDemo
-              videoUrl={project.videoUrl}
-              title="Watch Demo"
-              thumbnailUrl={project.videoThumbnail}
-              onOpen={() => setIsDemoOpen(true)}
-            />
+            {demoVideoUrl ? (
+              <>
+                <Button size="lg" variant="secondary" onClick={(e) => {
+                  e.preventDefault();
+                  const params = new URLSearchParams(searchParams?.toString());
+                  params.set("demo", "1");
+                  router.replace(`${pathname}?${params.toString()}`);
+                  setIsDemoOpen(true);
+                }}>
+                  Watch Demo
+                </Button>
+                {/* Video Demo */}
+                <VideoDemo
+                  videoUrl={project.videoUrl}
+                  title="Watch Demo"
+                  thumbnailUrl={project.videoThumbnail}
+                  onOpen={() => setIsDemoOpen(true)}
+                />
+              </>
+            ) : project.links.live ? (
+              <Button size="lg" asChild>
+                <a href={project.links.live} target="_blank" rel="noopener noreferrer">
+                  <ExternalLink className="w-5 h-5" />
+                  Open Web App
+                </a>
+              </Button>
+            ) : null}
 
             {/* Deployment Info */}
             <DeploymentInfo projectTitle={project.title} liveUrl={project.links.live} />
@@ -402,14 +421,16 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         </div>
       )}
 
-      <DemoVideoModal
-        isOpen={isDemoOpen}
-        onClose={handleCloseDemo}
-        videoUrl={demoVideoUrl}
-        title={`${project.title} Demo`}
-        returnFocusRef={demoButtonRef}
-        posterUrl={project.videoThumbnail}
-      />
+      {demoVideoUrl && (
+        <DemoVideoModal
+          isOpen={isDemoOpen}
+          onClose={handleCloseDemo}
+          videoUrl={demoVideoUrl}
+          title={`${project.title} Demo`}
+          returnFocusRef={demoButtonRef}
+          posterUrl={project.videoThumbnail}
+        />
+      )}
     </>
   );
 }
