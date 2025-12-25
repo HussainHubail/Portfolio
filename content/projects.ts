@@ -90,4 +90,46 @@ export const projects: Project[] = [
     videoUrl: "/polybookshop-demo.mp4",
     videoThumbnail: "/polybookshop-thumb.png",
   },
+  {
+    slug: "russian-training",
+    title: "Russian Training Web App",
+    description: "A playful Russian learning app with daily tasks, a dictionary, and a translator.",
+    longDescription: "A lightweight web app focused on helping users practice Russian through fun daily tasks, with a built-in dictionary and a simple translator. Designed to be approachable and engaging with straightforward UI.",
+    role: "Full Stack Developer",
+    year: "2025",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+    featured: false,
+    links: {
+      live: "https://russian-virid.vercel.app/",
+      github: "https://github.com/HussainHubail",
+    },
+    images: {
+      hero: "/Russian/Screenshot%202025-12-25%20171431.png",
+      gallery: [],
+    },
+    problem: "Learners need a simple and enjoyable way to practice everyday Russian without overwhelming interfaces.",
+    solution: "Built a web app with playful daily tasks, an integrated dictionary, and a translator to make casual practice easy.",
+    impact: [
+      { metric: "Focus", value: "Daily Practice" },
+      { metric: "Features", value: "Dictionary & Translator" },
+    ],
+    keyFeatures: [
+      "Fun daily tasks for practice",
+      "Built-in Russian dictionary",
+      "Lightweight translator",
+      "Clean, approachable UI",
+      "Responsive design",
+    ],
+    challenges: [
+      "Balancing simplicity with useful features",
+      "Keeping UI playful without distractions",
+    ],
+    learnings: [
+      "Designing engaging micro-interactions",
+      "Delivering utility with minimal UI",
+    ],
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+    videoUrl: undefined,
+    videoThumbnail: "/Russian/Screenshot%202025-12-25%20171431.png",
+  },
 ];
