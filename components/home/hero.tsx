@@ -103,13 +103,13 @@ export function Hero() {
                 </a>
               </Button>
             )}
-            <Button size="lg" variant="ghost" asChild>
+            <Button size="lg" variant="outline" asChild>
               <a href={profile.resumeUrl} download>
                 <Download className="w-5 h-5" />
                 Download CV
               </a>
             </Button>
-            <Button size="lg" variant="ghost" asChild>
+            <Button size="lg" variant="outline" asChild>
               <a href="/recommendation-letter.pdf" download>
                 <FileText className="w-5 h-5" />
                 Recommendation
