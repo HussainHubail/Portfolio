@@ -84,7 +84,7 @@ export function Hero() {
             variants={itemVariants}
             className="flex flex-wrap items-center justify-center gap-4 mb-12"
           >
-            <Button size="lg" asChild>
+            <Button size="lg" variant="outline" asChild>
               <Link href="/contact">
                 <Mail className="w-5 h-5" />
                 Get in Touch
@@ -95,14 +95,6 @@ export function Hero() {
                 View Projects
               </Link>
             </Button>
-            {profile.portfolioUrl && !profile.portfolioUrl.includes("PUT_PORTFOLIO_LIVE_URL_HERE") && (
-              <Button size="lg" variant="secondary" asChild>
-                <a href={profile.portfolioUrl} target="_blank" rel="noopener noreferrer">
-                  <ExternalLink className="w-5 h-5" />
-                  View Live Portfolio
-                </a>
-              </Button>
-            )}
             <Button size="lg" variant="outline" asChild>
               <a href={profile.resumeUrl} download>
                 <Download className="w-5 h-5" />
