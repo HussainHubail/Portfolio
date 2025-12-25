@@ -10,11 +10,12 @@ import { Tag } from "@/components/ui/tag";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Modal } from "@/components/ui/modal";
 import { Section } from "@/components/ui/section";
-import { ArrowLeft, ExternalLink, Github, ChevronLeft, ChevronRight, X } from "lucide-react";
+import { ArrowLeft, ExternalLink, Phone, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { projects } from "@/content/projects";
 import { VideoDemo } from "@/components/project/video-demo";
 import { DeploymentInfo } from "@/components/project/deployment-info";
 import { DemoVideoModal } from "@/components/project/demo-video-modal";
+import { profile } from "@/content/profile";
 
 interface ProjectPageProps {
   params: Promise<{
@@ -152,11 +153,11 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                 </a>
               </Button>
             )}
-            {project.links.github && (
+            {profile.phone && (
               <Button size="lg" variant="outline" asChild>
-                <a href={project.links.github} target="_blank" rel="noopener noreferrer">
-                  <Github className="w-5 h-5" />
-                  View Source Code
+                <a href={`tel:${profile.phone}`}>
+                  <Phone className="w-5 h-5" />
+                  Call Me
                 </a>
               </Button>
             )}

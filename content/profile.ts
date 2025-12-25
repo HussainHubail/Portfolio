@@ -4,6 +4,7 @@ export interface Profile {
   tagline: string;
   bio: string;
   email: string;
+  phone?: string;
   location: string;
   availability: string;
   social: {
@@ -23,6 +24,7 @@ export const profile: Profile = {
   tagline: "Building reliable web applications and database-driven systems with 5 years of student experience.",
   bio: "I'm an ICT Database Systems student at Bahrain Polytechnic, currently in my senior year (5th year). With 5 years of student experience, I'm passionate about building reliable web applications and database-driven systems. I focus on learning practical skills in database design, web development, and creating functional solutions.",
   email: "hmjubail2003@gmail.com",
+  phone: "+973 3366 2003",
   location: "Bahrain",
   availability: "Open to opportunities",
   social: {
