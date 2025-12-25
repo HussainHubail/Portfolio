@@ -26,12 +26,12 @@ export function FeaturedProjects() {
             <Link href={`/projects/${project.slug}`}>
               <Card className="h-full hover:shadow-lg transition-all group overflow-hidden">
                 {/* Image */}
-                <div className="relative h-48 w-full overflow-hidden bg-muted">
+                <div className="relative h-48 w-full overflow-hidden bg-muted transition-transform motion-reduce:transition-none group-hover:translate-y-px">
                   <Image
                     src={project.videoThumbnail || project.images.hero}
                     alt={project.title}
                     fill
-                    className="object-cover transition-transform group-hover:scale-105"
+                    className="object-cover transition-transform motion-reduce:transition-none group-hover:scale-[1.03]"
                   />
                 </div>
 

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Github, Linkedin, Twitter, Mail, Heart } from "lucide-react";
+import { CopyButton } from "@/components/ui/copy-button";
 import { profile } from "@/content/profile";
 
 const socialLinks = [
@@ -60,6 +61,11 @@ export function Footer() {
                   </a>
                 );
               })}
+              <CopyButton
+                text={profile.email}
+                label="Copy Email"
+                className="ml-1"
+              />
             </div>
           </div>
 

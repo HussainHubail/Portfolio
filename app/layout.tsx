@@ -5,6 +5,9 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { CommandPalette } from "@/components/layout/command-palette";
+import { ScrollProgressBar } from "@/components/layout/scroll-progress-bar";
+import { BackToTop } from "@/components/layout/back-to-top";
+import { AnimatedAccent } from "@/components/layout/animated-accent";
 import { profile } from "@/content/profile";
 
 const inter = Inter({
@@ -93,9 +96,12 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="relative flex min-h-screen flex-col">
+            <ScrollProgressBar />
+            <AnimatedAccent />
             <Navbar />
             <main className="flex-1">{children}</main>
             <Footer />
+            <BackToTop />
           </div>
           <CommandPalette />
         </ThemeProvider>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { use, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,13 +17,14 @@ import { DeploymentInfo } from "@/components/project/deployment-info";
 import { DemoVideoModal, DEMO_VIDEO_URL } from "@/components/project/demo-video-modal";
 
 interface ProjectPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export default function ProjectPage({ params }: ProjectPageProps) {
-  const project = projects.find((p) => p.slug === params.slug);
+  const { slug } = use(params);
+  const project = projects.find((p) => p.slug === slug);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [isDemoOpen, setIsDemoOpen] = useState(false);
   const demoButtonRef = useRef<HTMLButtonElement>(null);
@@ -133,7 +134,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
             <Button size="lg" asChild>
               <a href={project.links.live} target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="w-5 h-5" />
-                View Live Site
+                Live Demo
               </a>
             </Button>
           )}
