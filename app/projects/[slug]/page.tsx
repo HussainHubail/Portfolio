@@ -80,89 +80,94 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative h-[60vh] min-h-[500px] flex items-end">
-        <Image
-          src={project.images.hero}
-          alt={project.title}
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-        
-        <div className="relative section-container pb-12 text-white z-10">
-          <Link href="/projects">
-            <Button variant="ghost" size="sm" className="mb-6 text-white hover:text-white hover:bg-white/20">
-              <ArrowLeft className="w-4 h-4" />
-              Back to Projects
-            </Button>
-          </Link>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h1 className="text-4xl md:text-6xl font-bold mb-4">{project.title}</h1>
-            <p className="text-xl text-white/90 mb-6 max-w-3xl">{project.longDescription}</p>
+      {/* Hero + Main Content with Background Image */}
+      <section className="relative">
+        {/* Background Image */}
+        <div className="fixed top-0 left-0 w-full h-screen -z-10">
+          <Image
+            src={project.images.hero}
+            alt={project.title}
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/80" />
+        </div>
 
-            <div className="flex flex-wrap items-center gap-3 mb-4">
-              {demoVideoUrl ? (
-                <Button size="lg" variant="secondary" onClick={handleOpenDemo} ref={demoButtonRef}>
-                  Watch Demo
-                </Button>
-              ) : project.links.live ? (
-                <Button size="lg" variant="secondary" asChild>
-                  <a href={project.links.live} target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="w-5 h-5" />
-                    Open Web App
-                  </a>
-                </Button>
-              ) : null}
-            </div>
+        {/* Hero Section */}
+        <section className="relative pt-20 pb-20 text-white min-h-screen flex items-center">
+          <div className="section-container w-full">
+            <Link href="/projects">
+              <Button variant="ghost" size="sm" className="mb-6 text-white hover:text-white hover:bg-white/20">
+                <ArrowLeft className="w-4 h-4" />
+                Back to Projects
+              </Button>
+            </Link>
             
-            <div className="flex flex-wrap items-center gap-4">
-              <div className="flex items-center gap-2 text-sm">
-                <span className="font-medium">Role:</span>
-                <span className="text-white/80">{project.role}</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm">
-                <span className="font-medium">Year:</span>
-                <span className="text-white/80">{project.year}</span>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <h1 className="text-4xl md:text-6xl font-bold mb-4">{project.title}</h1>
+              <p className="text-xl text-white/90 mb-6 max-w-3xl">{project.longDescription}</p>
 
-      {/* Quick Links */}
-      <Section className="bg-muted/30 py-8">
-        <div className="flex flex-wrap gap-4 justify-center">
-          {project.links.live && (
-            <Button size="lg" asChild>
-              <a href={project.links.live} target="_blank" rel="noopener noreferrer">
-                <ExternalLink className="w-5 h-5" />
-                Live Demo
-              </a>
-            </Button>
-          )}
-          {project.links.github && (
-            <Button size="lg" variant="outline" asChild>
-              <a href={project.links.github} target="_blank" rel="noopener noreferrer">
-                <Github className="w-5 h-5" />
-                View Source Code
-              </a>
-            </Button>
-          )}
-        </div>
-      </Section>
+              <div className="flex flex-wrap items-center gap-3 mb-4">
+                {demoVideoUrl ? (
+                  <Button size="lg" variant="secondary" onClick={handleOpenDemo} ref={demoButtonRef}>
+                    Watch Demo
+                  </Button>
+                ) : project.links.live ? (
+                  <Button size="lg" variant="secondary" asChild>
+                    <a href={project.links.live} target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="w-5 h-5" />
+                      Open Web App
+                    </a>
+                  </Button>
+                ) : null}
+              </div>
+              
+              <div className="flex flex-wrap items-center gap-4">
+                <div className="flex items-center gap-2 text-sm">
+                  <span className="font-medium">Role:</span>
+                  <span className="text-white/80">{project.role}</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <span className="font-medium">Year:</span>
+                  <span className="text-white/80">{project.year}</span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
 
-      {/* Main Content */}
-      <Section>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          {/* Left Column - Details */}
-          <div className="lg:col-span-8 space-y-12">
+        {/* Quick Links */}
+        <Section className="bg-black/40 backdrop-blur-sm py-8">
+          <div className="flex flex-wrap gap-4 justify-center">
+            {project.links.live && (
+              <Button size="lg" asChild>
+                <a href={project.links.live} target="_blank" rel="noopener noreferrer">
+                  <ExternalLink className="w-5 h-5" />
+                  Live Demo
+                </a>
+              </Button>
+            )}
+            {project.links.github && (
+              <Button size="lg" variant="outline" asChild>
+                <a href={project.links.github} target="_blank" rel="noopener noreferrer">
+                  <Github className="w-5 h-5" />
+                  View Source Code
+                </a>
+              </Button>
+            )}
+          </div>
+        </Section>
+
+        {/* Main Content */}
+        <Section className="bg-background/95 backdrop-blur-md">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            {/* Left Column - Details */}
+            <div className="lg:col-span-8 space-y-12">
             {/* Problem */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -321,7 +326,8 @@ export default function ProjectPage({ params }: ProjectPageProps) {
             </Card>
           </div>
         </div>
-      </Section>
+        </Section>
+      </section>
 
       {/* Image Gallery */}
       {project.images.gallery.length > 0 && (
