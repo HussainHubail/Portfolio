@@ -1,7 +1,6 @@
 import { Hero } from "@/components/home/hero";
 import { Highlights } from "@/components/home/highlights";
 import { FeaturedProjects } from "@/components/home/featured-projects";
-import { Testimonials } from "@/components/home/testimonials";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -22,14 +21,6 @@ export default function Home() {
           description="A showcase of my recent work and notable achievements"
         />
         <FeaturedProjects />
-      </Section>
-
-      <Section className="bg-muted/30">
-        <SectionHeader
-          title="What People Say"
-          description="Testimonials from clients and colleagues I've worked with"
-        />
-        <Testimonials />
       </Section>
 
       <Section>
