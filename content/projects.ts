@@ -46,11 +46,7 @@ export const projects: Project[] = [
     },
     images: {
       hero: "https://images.unsplash.com/photo-1507842217343-583b8c9b4f6b?w=1200&h=600&fit=crop",
-      gallery: [
-        "https://images.unsplash.com/photo-1507842217343-583b8c9b4f6b?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1521227884298-7f08f910feac?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=800&h=600&fit=crop",
-      ],
+      gallery: [],
     },
     problem: "Bahrain Polytechnic University library needed a modern digital system to manage physical book loans, provide access to online PDF books, and streamline library operations.",
     solution: "Developed Poly Book Shop as a comprehensive library management system with student and librarian roles. Students can loan physical books and download online PDFs, while librarians can manage the entire book catalog, add new PDF books, and oversee lending operations. Focused on user-friendly design and efficient library workflows.",
