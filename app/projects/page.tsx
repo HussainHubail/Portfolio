@@ -9,8 +9,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tag } from "@/components/ui/tag";
 import { Section, SectionHeader } from "@/components/ui/section";
-import { ExternalLink, Github, Search } from "lucide-react";
+import { ExternalLink, Phone, Search } from "lucide-react";
 import { projects } from "@/content/projects";
+import { profile } from "@/content/profile";
 
 export default function ProjectsPage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -177,13 +178,11 @@ export default function ProjectsPage() {
                       {project.links.github && (
                         <Button size="sm" variant="ghost" asChild>
                           <a
-                            href={project.links.github}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            href={`tel:${profile.phone}`}
                             onClick={(e) => e.stopPropagation()}
                           >
-                            <Github className="w-4 h-4" />
-                            Code
+                            <Phone className="w-4 h-4" />
+                            Call
                           </a>
                         </Button>
                       )}
