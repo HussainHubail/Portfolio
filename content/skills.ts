@@ -72,7 +72,7 @@ export const education: Education[] = [
   {
     degree: "ICT Database Systems (Senior Year - 5th Year)",
     institution: "Bahrain Polytechnic",
-    year: "<START_YEAR> - Present",
+    year: "2021 - Present",
     description:
       "Senior year student specializing in database systems and ICT. Focused on database design, web development, and practical application of technology.",
   },
