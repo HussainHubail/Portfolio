@@ -33,7 +33,7 @@ export const profile: Profile = {
     twitter: "",
     website: "https://portfolio-tau-murex-63.vercel.app",
   },
-  resumeUrl: "/HussainsCV.pdf",
+  resumeUrl: "/HussainCv.pdf",
   portfolioUrl: "https://portfolio-tau-murex-63.vercel.app",
   skills: [
     // Frontend
