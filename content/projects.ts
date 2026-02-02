@@ -134,7 +134,7 @@ export const projects: Project[] = [
     description: "A comprehensive fitness web app with personalized workouts, Halal meal planning, and AI coaching.",
     longDescription: "Relentic is a full-stack fitness platform designed to deliver personalized wellness experiences. The app combines intelligent workout planning, culturally-aligned meal tracking with calorie management, and an AI-powered coach chatbot. Built with mobile-first principles, it provides real-time progress tracking and an intuitive dashboard for users to monitor their fitness journey.",
     role: "Full Stack Developer",
-    year: "2025",
+    year: "2026",
     tags: ["React", "Node.js", "AI Integration", "Cloud Deployment"],
     featured: true,
     links: {
