@@ -142,7 +142,7 @@ export const projects: Project[] = [
       github: "https://github.com/HussainHubail",
     },
     images: {
-      hero: "/relentic-thumb.svg",
+      hero: "/relentic-thumb.png",
       gallery: [],
     },
     problem: "Fitness enthusiasts need an integrated solution that combines personalized workout planning, culturally-relevant meal tracking, and intelligent coaching—without using multiple disconnected apps.",
@@ -181,6 +181,6 @@ export const projects: Project[] = [
     ],
     techStack: ["React", "Node.js", "AI Integration", "Cloud Deployment", "Real-time Analytics"],
     videoUrl: undefined,
-    videoThumbnail: "/relentic-thumb.svg",
+    videoThumbnail: "/relentic-thumb.png",
   },
 ];
