@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import { features } from "@/config/features";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 function isTouchDevice() {
   if (typeof window === "undefined") return false;
@@ -12,8 +14,6 @@ function isTouchDevice() {
 export function SpotlightCursor() {
   const reduceMotion = usePrefersReducedMotion();
   const [enabled, setEnabled] = useState(false);
-  const rafId = useRef<number | null>(null);
-  const pos = useRef({ x: 0, y: 0 });
   const elRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -21,27 +21,19 @@ export function SpotlightCursor() {
     setEnabled(ok);
   }, [reduceMotion]);
 
-  useEffect(() => {
-    if (!enabled) return;
+  useGSAP(() => {
+    if (!enabled || !elRef.current) return;
 
-    const onMove = (e: MouseEvent) => {
-      pos.current = { x: e.clientX, y: e.clientY };
-      if (rafId.current == null) {
-        rafId.current = requestAnimationFrame(() => {
-          rafId.current = null;
-          const el = elRef.current;
-          if (!el) return;
-          el.style.setProperty("--x", `${pos.current.x}px`);
-          el.style.setProperty("--y", `${pos.current.y}px`);
-        });
-      }
+    const xTo = gsap.quickTo(elRef.current, "--x", { duration: 0.4, ease: "power3" });
+    const yTo = gsap.quickTo(elRef.current, "--y", { duration: 0.4, ease: "power3" });
+
+    const handleMouseMove = (e: MouseEvent) => {
+      xTo(e.clientX);
+      yTo(e.clientY);
     };
 
-    window.addEventListener("mousemove", onMove);
-    return () => {
-      window.removeEventListener("mousemove", onMove);
-      if (rafId.current) cancelAnimationFrame(rafId.current);
-    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [enabled]);
 
   if (!enabled) return null;
@@ -49,12 +41,9 @@ export function SpotlightCursor() {
   return (
     <div
       ref={elRef}
-      className="pointer-events-none absolute inset-0 -z-0"
+      className="pointer-events-none fixed inset-0 z-[9999]"
       style={{
-        // Subtle spotlight following the cursor
-        background:
-          "radial-gradient(300px at var(--x) var(--y), rgba(255,255,255,0.08), transparent 60%)",
-        transition: "background 120ms linear",
+        background: "radial-gradient(400px at var(--x, 0px) var(--y, 0px), rgba(255,255,255,0.05), transparent 80%)",
       }}
       aria-hidden="true"
     />

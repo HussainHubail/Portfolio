@@ -89,7 +89,7 @@ export const projects: Project[] = [
   {
     slug: "russian-training",
     title: "Russian Training Web App",
-    description: "A playful Russian learning app with daily tasks, a dictionary, and a translator.",
+    description: "A language learning app I built for myself while studying Russian. Features daily tasks, a built-in dictionary, and a live translator. Built because I wanted a tool tailored to how I actually learn.",
     longDescription: "A lightweight web app focused on helping users practice Russian through fun daily tasks, with a built-in dictionary and a simple translator. Designed to be approachable and engaging with straightforward UI.",
     role: "Full Stack Developer",
     year: "2025",
@@ -131,7 +131,7 @@ export const projects: Project[] = [
   {
     slug: "relentic",
     title: "Relentic",
-    description: "A comprehensive fitness web app with personalized workouts, Halal meal planning, and AI coaching.",
+    description: "A comprehensive fitness web app with personalized workouts, Halal meal planning, and AI coaching. Includes Halal-certified meal planning — built specifically with Muslim users in mind.",
     longDescription: "Relentic is a full-stack fitness platform designed to deliver personalized wellness experiences. The app combines intelligent workout planning, culturally-aligned meal tracking with calorie management, and an AI-powered coach chatbot. Built with mobile-first principles, it provides real-time progress tracking and an intuitive dashboard for users to monitor their fitness journey.",
     role: "Full Stack Developer",
     year: "2026",

@@ -1,155 +1,191 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Download, Mail, Phone, Linkedin, ExternalLink, FileText } from "lucide-react";
+import { ArrowDown, Download, Mail, Phone, Linkedin, ExternalLink, FileText, Github } from "lucide-react";
 import { profile } from "@/content/profile";
 import Link from "next/link";
 import { SpotlightCursor } from "@/components/effects/spotlight-cursor";
+import { MagneticButton } from "@/components/ui/magnetic-button";
 
 export function Hero() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  };
+  const containerRef = useRef<HTMLDivElement>(null);
+  const nameRef = useRef<HTMLSpanElement>(null);
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-    },
-  };
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      defaults: { ease: "power3.out", duration: 1 },
+    });
+
+    tl.from(".hero-content div > *", {
+      y: 40,
+      opacity: 0,
+      stagger: 0.15,
+      delay: 0.2,
+    })
+    .from(".scroll-indicator", {
+      opacity: 0,
+      duration: 1,
+    }, "-=0.5");
+
+    // Floating animation for the name
+    gsap.to(nameRef.current, {
+      y: -10,
+      duration: 2,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut",
+    });
+
+    // Scramble text for the role
+    gsap.from(".hero-role", {
+      duration: 1.5,
+      scrambleText: {
+        text: profile.role,
+        chars: "01",
+        revealDelay: 0.5,
+        speed: 0.3,
+      },
+    });
+
+    // Parallax effect on mouse move
+    const handleMouseMove = (e: MouseEvent) => {
+      const { clientX, clientY } = e;
+      const xPos = (clientX / window.innerWidth - 0.5) * 30;
+      const yPos = (clientY / window.innerHeight - 0.5) * 30;
+
+      gsap.to(".bg-parallax-1", { x: xPos, y: yPos, duration: 1 });
+      gsap.to(".bg-parallax-2", { x: -xPos, y: -yPos, duration: 1 });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, { scope: containerRef });
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+    <section ref={containerRef} className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
       <SpotlightCursor />
       {/* Background Gradient */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-purple-500/5 to-background" />
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="bg-parallax-1 absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
+        <div className="bg-parallax-2 absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
       </div>
 
-      <motion.div
-        className="section-container"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
+      <div className="section-container hero-content">
         <div className="max-w-4xl mx-auto text-center">
           {/* Greeting */}
-          <motion.div variants={itemVariants} className="mb-6">
+          <div className="mb-6">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
               {profile.availability}
             </span>
-          </motion.div>
+          </div>
 
           {/* Name */}
-          <motion.h1
-            variants={itemVariants}
-            className="text-5xl md:text-7xl font-bold mb-6 text-balance"
-          >
+          <h1 className="text-5xl md:text-8xl font-bold mb-6 text-balance tracking-tighter">
             Hi, I'm{" "}
-            <span className="gradient-text">
+            <span ref={nameRef} className="gradient-text inline-block">
               {profile.name.split(" ")[0]}
             </span>
-          </motion.h1>
+          </h1>
 
           {/* Role */}
-          <motion.h2
-            variants={itemVariants}
-            className="text-2xl md:text-3xl font-semibold text-muted-foreground mb-6"
-          >
+          <h2 className="hero-role text-2xl md:text-3xl font-semibold text-muted-foreground mb-4 uppercase tracking-widest opacity-80 min-h-[1.5em]">
             {profile.role}
-          </motion.h2>
+          </h2>
+
+          {/* Currently Status Chip */}
+          <div className="mb-8 flex justify-center">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-sm font-medium border border-green-500/20 max-w-full flex-wrap justify-center">
+              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse flex-shrink-0" />
+              <span className="text-center">🎓 Senior year at Bahrain Polytechnic · Open to full-time roles</span>
+            </span>
+          </div>
 
           {/* Tagline */}
-          <motion.p
-            variants={itemVariants}
-            className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto text-balance"
-          >
+          <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto text-balance leading-relaxed">
             {profile.tagline}
-          </motion.p>
+          </p>
 
           {/* CTA Buttons */}
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-wrap items-center justify-center gap-4 mb-12"
-          >
-            <Button size="lg" variant="outline" asChild>
-              <Link href="/contact">
-                <Mail className="w-5 h-5" />
-                Get in Touch
-              </Link>
-            </Button>
-            <Button size="lg" variant="outline" asChild>
-              <Link href="/projects">
-                View Projects
-              </Link>
-            </Button>
-            <Button size="lg" variant="outline" asChild>
-              <a href={profile.resumeUrl} download>
-                <Download className="w-5 h-5" />
-                Download CV
-              </a>
-            </Button>
-            <Button size="lg" variant="outline" asChild>
-              <a href="/recommendation-letter.pdf" download>
-                <FileText className="w-5 h-5" />
-                Recommendation
-              </a>
-            </Button>
-          </motion.div>
+          <div className="flex flex-wrap items-center justify-center gap-6 mb-12">
+            <MagneticButton>
+              <Button size="lg" variant="outline" asChild className="rounded-full px-8 border-primary/20 hover:border-primary">
+                <Link href="/contact">
+                  <Mail className="w-5 h-5" />
+                  Get in Touch
+                </Link>
+              </Button>
+            </MagneticButton>
+            
+            <MagneticButton>
+              <Button size="lg" variant="outline" asChild className="rounded-full px-8">
+                <Link href="/projects">
+                  View Projects
+                </Link>
+              </Button>
+            </MagneticButton>
+
+            <MagneticButton>
+              <Button size="lg" variant="outline" asChild className="rounded-full px-8">
+                <a href={profile.resumeUrl} download>
+                  <Download className="w-5 h-5" />
+                  CV
+                </a>
+              </Button>
+            </MagneticButton>
+          </div>
 
           {/* Social Links */}
-          <motion.div
-            variants={itemVariants}
-            className="flex items-center justify-center gap-4"
-          >
+          <div className="flex items-center justify-center gap-6">
             {profile.phone && (
-              <a
-                href={`tel:${profile.phone}`}
-                className="w-12 h-12 rounded-full border flex items-center justify-center hover:bg-accent hover:border-primary transition-all hover:scale-110"
-                aria-label="Call Me"
-              >
-                <Phone className="w-5 h-5" />
-              </a>
+              <MagneticButton strength={20}>
+                <a
+                  href={`tel:${profile.phone}`}
+                  className="w-14 h-14 rounded-full border border-primary/10 flex items-center justify-center hover:bg-accent hover:border-primary transition-colors"
+                  aria-label="Call Me"
+                >
+                  <Phone className="w-5 h-5" />
+                </a>
+              </MagneticButton>
+            )}
+            {profile.social.github && (
+              <MagneticButton strength={20}>
+                <a
+                  href={profile.social.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-14 h-14 rounded-full border border-primary/10 flex items-center justify-center hover:bg-accent hover:border-primary transition-colors"
+                  aria-label="GitHub"
+                >
+                  <Github className="w-5 h-5" />
+                </a>
+              </MagneticButton>
             )}
             {profile.social.linkedin && (
-              <a
-                href={profile.social.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full border flex items-center justify-center hover:bg-accent hover:border-primary transition-all hover:scale-110"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
+              <MagneticButton strength={20}>
+                <a
+                  href={profile.social.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-14 h-14 rounded-full border border-primary/10 flex items-center justify-center hover:bg-accent hover:border-primary transition-colors"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="w-5 h-5" />
+                </a>
+              </MagneticButton>
             )}
-          </motion.div>
+          </div>
         </div>
 
         {/* Scroll Indicator */}
-        <motion.div
-          variants={itemVariants}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <ArrowDown className="w-6 h-6 text-muted-foreground" />
-          </motion.div>
-        </motion.div>
-      </motion.div>
+        <div className="scroll-indicator absolute bottom-8 left-1/2 -translate-x-1/2">
+          <ArrowDown className="w-6 h-6 text-muted-foreground animate-bounce" />
+        </div>
+      </div>
     </section>
   );
 }

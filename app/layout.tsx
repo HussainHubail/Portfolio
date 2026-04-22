@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { GSAPProvider } from "@/components/gsap-provider";
+
+import { Plus_Jakarta_Sans, Outfit, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/layout/navbar";
@@ -18,10 +20,17 @@ import { ExtraEasterEggs } from "@/components/fun/extra-easter-eggs";
 import { MoodRing } from "@/components/fun/mood-ring";
 import { TinyPet } from "@/components/fun/tiny-pet";
 import { ScreenshotShake } from "@/components/fun/screenshot-shake";
+import { PageTransition } from "@/components/layout/page-transition";
 
-const inter = Inter({
+const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
+  display: "swap",
+});
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-heading",
   display: "swap",
 });
 
@@ -96,7 +105,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}
+        className={`${plusJakartaSans.variable} ${outfit.variable} ${jetbrainsMono.variable} font-sans antialiased`}
       >
         <ThemeProvider
           attribute="class"
@@ -104,26 +113,30 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="relative flex min-h-screen flex-col">
-            {features.scrollProgressBar && <ScrollProgressBar />}
-            {features.animatedAccent && <AnimatedAccent />}
-            {features.konamiMode && <KonamiMode />}
-            {features.hashDeepLinks && <HashDeepLinkHandler />}
-            
-            {/* Fun features */}
-            <SparkleTrail />
-            <RubberDuck />
-            <ExtraEasterEggs />
-            <MoodRing />
-            <TinyPet />
-            <ScreenshotShake />
-            
-            <Navbar />
-            <main className="flex-1">{children}</main>
-            <Footer />
-            {features.backToTop && <BackToTop />}
-          </div>
-          <CommandPalette />
+          <GSAPProvider>
+            <div className="relative flex min-h-screen flex-col">
+              {features.scrollProgressBar && <ScrollProgressBar />}
+              {features.animatedAccent && <AnimatedAccent />}
+              {features.konamiMode && <KonamiMode />}
+              {features.hashDeepLinks && <HashDeepLinkHandler />}
+              
+              {/* Fun features */}
+              <SparkleTrail />
+              <RubberDuck />
+              <ExtraEasterEggs />
+              <MoodRing />
+              <TinyPet />
+              <ScreenshotShake />
+              
+              <Navbar />
+              <main className="flex-1">
+                <PageTransition>{children}</PageTransition>
+              </main>
+              <Footer />
+              {features.backToTop && <BackToTop />}
+            </div>
+            <CommandPalette />
+          </GSAPProvider>
         </ThemeProvider>
       </body>
     </html>

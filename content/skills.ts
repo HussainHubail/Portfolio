@@ -87,5 +87,14 @@ export interface Certification {
 }
 
 export const certifications: Certification[] = [
-  // Add certifications as you receive them
+  {
+    name: "Responsive Web Design",
+    issuer: "freeCodeCamp",
+    year: "2024",
+  },
+  {
+    name: "JavaScript Algorithms and Data Structures",
+    issuer: "freeCodeCamp",
+    year: "2024",
+  },
 ];

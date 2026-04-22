@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { ColorThemeSwitcher } from "@/components/layout/color-theme-switcher";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Github, Linkedin } from "lucide-react";
 import { profile } from "@/content/profile";
 
 const navigation = [
@@ -93,6 +93,25 @@ export function Navbar() {
 
           {/* Right Actions */}
           <div className="flex items-center gap-2">
+            {/* Social icons - desktop only */}
+            <a
+              href={profile.social.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden md:flex w-10 h-10 items-center justify-center rounded-lg hover:bg-accent transition-colors"
+              aria-label="GitHub"
+            >
+              <Github className="w-5 h-5" />
+            </a>
+            <a
+              href={profile.social.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden md:flex w-10 h-10 items-center justify-center rounded-lg hover:bg-accent transition-colors"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="w-5 h-5" />
+            </a>
             <ColorThemeSwitcher />
             <ThemeToggle />
             
@@ -135,6 +154,29 @@ export function Navbar() {
                   </Link>
                 );
               })}
+              {/* Mobile social links */}
+              <div className="flex items-center gap-3 px-4 pt-6 mt-4 border-t">
+                <a
+                  href={profile.social.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="w-11 h-11 rounded-lg border flex items-center justify-center hover:bg-accent transition-colors"
+                  aria-label="GitHub"
+                >
+                  <Github className="w-5 h-5" />
+                </a>
+                <a
+                  href={profile.social.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="w-11 h-11 rounded-lg border flex items-center justify-center hover:bg-accent transition-colors"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="w-5 h-5" />
+                </a>
+              </div>
             </div>
           </nav>
         </div>

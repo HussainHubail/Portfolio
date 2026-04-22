@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/toast";
-import { Mail, Linkedin, Phone, MapPin, Send, Phone as PhoneIcon } from "lucide-react";
+import { Mail, Linkedin, Phone, MapPin, Send, Github, MessageCircle } from "lucide-react";
 import { profile } from "@/content/profile";
 
 export default function ContactPage() {
@@ -125,16 +125,23 @@ export default function ContactPage() {
       href: "tel:+97339011560",
     },
     {
+      icon: MessageCircle,
+      label: "WhatsApp",
+      value: "Chat on WhatsApp",
+      href: "https://wa.me/97339011560",
+      accent: true,
+    },
+    {
       icon: MapPin,
       label: "Location",
       value: profile.location,
       href: null,
     },
     {
-      icon: PhoneIcon,
-      label: "Phone",
-      value: profile.phone || "Contact me",
-      href: profile.phone ? `tel:${profile.phone}` : null,
+      icon: Github,
+      label: "GitHub",
+      value: "View my code",
+      href: profile.social.github,
     },
     {
       icon: Linkedin,
@@ -262,10 +269,11 @@ export default function ContactPage() {
               <div className="space-y-4">
                 {contactMethods.map((method) => {
                   const Icon = method.icon;
+                  const isWhatsApp = (method as any).accent;
                   const content = (
-                    <div className="flex items-start gap-4 p-4 rounded-lg hover:bg-accent transition-colors">
-                      <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <Icon className="w-6 h-6 text-primary" />
+                    <div className={`flex items-start gap-4 p-4 rounded-lg transition-colors min-h-[56px] ${isWhatsApp ? "bg-[#25D366]/10 hover:bg-[#25D366]/20 border border-[#25D366]/20" : "hover:bg-accent"}`}>
+                      <div className={`w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 ${isWhatsApp ? "bg-[#25D366]/20" : "bg-primary/10"}`}>
+                        <Icon className={`w-6 h-6 ${isWhatsApp ? "text-[#25D366]" : "text-primary"}`} />
                       </div>
                       <div>
                         <div className="font-medium mb-1">{method.label}</div>
@@ -282,6 +290,7 @@ export default function ContactPage() {
                       href={method.href}
                       target={method.href.startsWith("http") ? "_blank" : undefined}
                       rel={method.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                      className={isWhatsApp ? "block w-full md:w-auto" : "block"}
                     >
                       {content}
                     </a>
