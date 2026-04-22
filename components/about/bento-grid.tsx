@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tag } from "@/components/ui/tag";
 import { profile } from "@/content/profile";
@@ -17,10 +18,11 @@ export function AboutBentoGrid() {
           <CardHeader>
             <div className="flex justify-center md:justify-start mb-4">
               <div className="relative w-24 h-24 rounded-full ring-4 ring-primary/20 overflow-hidden bg-primary/10 flex items-center justify-center">
-                <img
+                <Image
                   src="/profile.jpg"
                   alt={profile.name}
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
                   onError={(e) => { 
                     (e.target as HTMLImageElement).style.opacity = '0';
                   }}
