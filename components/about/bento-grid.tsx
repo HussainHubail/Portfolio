@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tag } from "@/components/ui/tag";
 import { profile } from "@/content/profile";
@@ -16,18 +15,18 @@ export function AboutBentoGrid() {
       <Reveal direction="up" className="md:col-span-2 md:row-span-2">
         <Card className="h-full border-primary/10 bg-primary/5 backdrop-blur-sm group hover:border-primary/30 transition-colors">
           <CardHeader>
-            {/* Profile Photo */}
             <div className="flex justify-center md:justify-start mb-4">
               <div className="relative w-24 h-24 rounded-full ring-4 ring-primary/20 overflow-hidden bg-primary/10 flex items-center justify-center">
-                <Image
+                <img
                   src="/profile.jpg"
                   alt={profile.name}
-                  fill
-                  className="object-cover"
-                  onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                  className="w-full h-full object-cover"
+                  onError={(e) => { 
+                    (e.target as HTMLImageElement).style.opacity = '0';
+                  }}
                 />
-                {/* Fallback initials — always rendered behind the image */}
-                <span className="absolute inset-0 flex items-center justify-center text-2xl font-bold text-primary select-none">HH</span>
+                {/* Fallback initials — always rendered behind the image or shown if image fails */}
+                <span className="absolute inset-0 flex items-center justify-center text-2xl font-bold text-primary select-none -z-10">HH</span>
               </div>
             </div>
             <CardTitle className="text-3xl font-extrabold flex items-center gap-3">
