@@ -1,9 +1,9 @@
 import { Section, SectionHeader } from "@/components/ui/section";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Download, Award, BookOpen } from "lucide-react";
+import { Download, BookOpen } from "lucide-react";
 import { profile } from "@/content/profile";
-import { education, certifications } from "@/content/skills";
+import { education } from "@/content/skills";
 import { Metadata } from "next";
 import { Reveal } from "@/components/effects/reveal-animation";
 import { AboutBentoGrid } from "@/components/about/bento-grid";
@@ -30,10 +30,9 @@ export default function AboutPage() {
           <AboutBentoGrid />
         </div>
 
-        {/* Education & Certifications Row */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-24 max-w-6xl mx-auto">
-          {/* Education */}
-          <Reveal direction="left">
+        {/* Education */}
+        <div className="mb-24 max-w-3xl mx-auto">
+          <Reveal direction="up">
             <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
               <BookOpen className="w-8 h-8 text-primary" />
               Education
@@ -50,30 +49,6 @@ export default function AboutPage() {
                 </Card>
               ))}
             </div>
-          </Reveal>
-
-          {/* Certifications */}
-          <Reveal direction="right">
-            <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
-              <Award className="w-8 h-8 text-primary" />
-              Certifications
-            </h2>
-            <div className="grid grid-cols-1 gap-4">
-              {certifications.map((cert) => (
-                <Card key={cert.name} className="hover:border-primary/20 transition-all border-primary/5">
-                  <CardContent className="pt-6">
-                    <h3 className="font-bold mb-2 text-lg">{cert.name}</h3>
-                    <div className="flex justify-between items-center">
-                      <p className="text-sm text-primary font-medium">{cert.issuer}</p>
-                      <p className="text-xs text-muted-foreground font-mono">{cert.year}</p>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-            <p className="text-sm text-muted-foreground mt-6 italic">
-              Currently pursuing certifications in cloud and database technologies.
-            </p>
           </Reveal>
         </div>
 

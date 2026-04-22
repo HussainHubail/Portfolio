@@ -48,7 +48,7 @@ export const experiences: Experience[] = [
     description: "Completed various academic and personal projects to build practical development skills.",
     achievements: [
       "Created a Car Blog project demonstrating web development fundamentals",
-      "Completed PolyBookShop as a major project with full e-commerce functionality",
+      "Completed PolyBookShop as a major capstone project — a library management system for Bahrain Polytechnic University to loan and download books",
       "Worked with databases, APIs, and frontend frameworks",
       "Documented code and created technical presentations",
       "Practiced version control and collaborative development workflows",

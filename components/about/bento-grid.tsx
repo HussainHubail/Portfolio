@@ -40,7 +40,7 @@ export function AboutBentoGrid() {
               {profile.bio}
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              I&apos;m a senior ICT student based in Bahrain with a genuine love for building things — whether it&apos;s a full-stack web app, a database system, or a language learning tool I made just because I wanted to learn Russian. I care about writing clean code that actually works for real people. After graduation, I&apos;m looking to join a team where I can grow as a developer, take on real problems, and keep building.
+              I&apos;m a senior ICT student based in Bahrain who enjoys building things that actually work. Outside of coding, I spend time at the gym and gaming — both of which keep me sane. I&apos;m looking to join a team after graduation where I can grow as a developer and work on real problems.
             </p>
           </CardContent>
         </Card>
