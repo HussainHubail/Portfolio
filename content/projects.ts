@@ -191,17 +191,17 @@ export const projects: Project[] = [
     longDescription: "Attention Media is a subscription-based content agency handling short-form video content end to end. I built this site independently to serve as their primary lead generation and proof-of-work platform. The site focuses on demonstrating real campaign results rather than just making claims, featuring a dynamic proof feed and a client portal concept.",
     role: "Solo Developer (Freelance)",
     year: "2026",
-    tags: ["Next.js", "Cloudflare R2", "// TODO: confirm CSS framework", "// TODO: confirm backend/form handling"],
+    tags: ["React", "Next.js", "TypeScript", "Supabase", "Vercel"],
     featured: true,
     links: {
       live: "https://www.attentioncreators.com/",
     },
     images: {
       hero: "/attention-media-thumb.png",
-      gallery: [],
+      gallery: [], // Note: Use demo account images for portal screenshots, no live login URL
     },
     problem: "The agency needed a site that could actually prove results instead of just claiming them, and needed to look premium enough to justify a monthly retainer with no fixed package.",
-    solution: "Built a proof-first layout — an auto-scrolling video feed pulling real client campaign clips and view counts, animated stat blocks for growth metrics, and a clear step-by-step breakdown of their process, ending in a lead form.",
+    solution: "Built a proof-first layout — an auto-scrolling video feed pulling real client campaign clips and view counts, animated stat blocks for growth metrics, and a clear step-by-step breakdown of their process, ending in a lead form. Also built the client-facing portal shown on the site — content status tracking, video approval workflow, and real-time performance view.",
     impact: [
       { metric: "Status", value: "Live" },
       { metric: "Delivery", value: "Solo Freelance" },
@@ -210,7 +210,7 @@ export const projects: Project[] = [
       "Video proof feed of real client campaigns",
       "Animated growth stats and metrics",
       "Service and process breakdown",
-      "Client portal dashboard preview",
+      "Client portal (status tracking, approvals, performance)",
       "Lead capture form integration",
     ],
     challenges: [
@@ -223,7 +223,7 @@ export const projects: Project[] = [
       "Balancing high-quality media with fast load times",
       "Working directly with a client to translate their sales process into a website flow",
     ],
-    techStack: ["Next.js", "Cloudflare R2", "// TODO: confirm CSS framework", "// TODO: confirm backend/form handling"],
+    techStack: ["React", "Next.js", "TypeScript", "JavaScript", "HTML", "CSS", "Supabase", "Cloudflare R2", "Vercel"],
   },
   {
     slug: "haleema-solutions",
@@ -232,7 +232,7 @@ export const projects: Project[] = [
     longDescription: "Haleema.Solutions is a two-sided marketplace designed to bridge the gap between Bahraini brands and local User Generated Content (UGC) creators. It simplifies the process of booking creators by providing a guided campaign-brief flow and transparent tiered pricing.",
     role: "Solo Developer",
     year: "2026",
-    tags: ["Next.js", "Vercel", "// TODO: confirm backend/database"],
+    tags: ["React", "Next.js", "TypeScript", "Supabase", "Vercel"],
     featured: true,
     status: "In Progress",
     links: {
@@ -263,7 +263,7 @@ export const projects: Project[] = [
       "Building marketplace dynamics and dual-sided onboarding",
       "Simplifying complex agency processes into a self-serve digital product",
     ],
-    techStack: ["Next.js", "Vercel", "// TODO: confirm backend/database"],
+    techStack: ["React", "Next.js", "TypeScript", "Supabase", "Vercel"],
   },
   {
     slug: "basita",
@@ -272,7 +272,7 @@ export const projects: Project[] = [
     longDescription: "Basita is my personal web development brand and agency. I created it to package and sell my freelance work in a structured way. Instead of doing one-off client sites without a clear framework, Basita provides structured service pages and a clear process breakdown so clients know exactly what they're getting.",
     role: "Solo Founder & Developer",
     year: "2026",
-    tags: ["Personal Brand", "Agency", "Next.js", "TypeScript"],
+    tags: ["Personal Brand", "Agency", "React", "Next.js", "TypeScript", "Vercel"],
     featured: true,
     status: "Live",
     links: {
@@ -303,6 +303,6 @@ export const projects: Project[] = [
       "Productizing freelance services",
       "Building a personal brand identity",
     ],
-    techStack: ["Next.js", "TypeScript", "Tailwind CSS"],
+    techStack: ["React", "Next.js", "TypeScript", "JavaScript", "HTML", "CSS", "Vercel"],
   }
 ];
