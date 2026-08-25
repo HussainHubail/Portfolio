@@ -7,6 +7,7 @@ export interface Project {
   year: string;
   tags: string[];
   featured: boolean;
+  status?: string;
   links: {
     live?: string;
     github?: string;
@@ -183,4 +184,85 @@ export const projects: Project[] = [
     videoUrl: undefined,
     videoThumbnail: "/relentic-thumb.png",
   },
+  {
+    slug: "attention-media",
+    title: "Attention Media",
+    description: "A website I built solo for a content agency — subscription-based service where they handle a client's short-form video content end to end. Has a proof feed of real campaign results and a client portal concept.",
+    longDescription: "Attention Media is a subscription-based content agency handling short-form video content end to end. I built this site independently to serve as their primary lead generation and proof-of-work platform. The site focuses on demonstrating real campaign results rather than just making claims, featuring a dynamic proof feed and a client portal concept.",
+    role: "Solo Developer (Freelance)",
+    year: "2026",
+    tags: ["Next.js", "Cloudflare R2", "// TODO: confirm CSS framework", "// TODO: confirm backend/form handling"],
+    featured: true,
+    links: {
+      live: "https://www.attentioncreators.com/",
+    },
+    images: {
+      hero: "/attention-media-thumb.png", // TODO: update with real screenshot
+      gallery: [],
+    },
+    problem: "The agency needed a site that could actually prove results instead of just claiming them, and needed to look premium enough to justify a monthly retainer with no fixed package.",
+    solution: "Built a proof-first layout — an auto-scrolling video feed pulling real client campaign clips and view counts, animated stat blocks for growth metrics, and a clear step-by-step breakdown of their process, ending in a lead form.",
+    impact: [
+      { metric: "Status", value: "Live" },
+      { metric: "Delivery", value: "Solo Freelance" },
+    ],
+    keyFeatures: [
+      "Video proof feed of real client campaigns",
+      "Animated growth stats and metrics",
+      "Service and process breakdown",
+      "Client portal dashboard preview",
+      "Lead capture form integration",
+    ],
+    challenges: [
+      "Designing a layout that prioritizes visual proof over text",
+      "Optimizing video delivery and auto-scrolling performance",
+      "Creating a premium feel suitable for retainer-based services",
+    ],
+    learnings: [
+      "Managing video assets effectively with Cloudflare R2",
+      "Balancing high-quality media with fast load times",
+      "Working directly with a client to translate their sales process into a website flow",
+    ],
+    techStack: ["Next.js", "Cloudflare R2", "// TODO: confirm CSS framework", "// TODO: confirm backend/form handling"],
+  },
+  {
+    slug: "haleema-solutions",
+    title: "Haleema.Solutions",
+    description: "A two-sided marketplace connecting Bahraini brands with local UGC creators. Brands submit a campaign brief, get matched with a creator, and get the content delivered — still building this one out.",
+    longDescription: "Haleema.Solutions is a two-sided marketplace designed to bridge the gap between Bahraini brands and local User Generated Content (UGC) creators. It simplifies the process of booking creators by providing a guided campaign-brief flow and transparent tiered pricing.",
+    role: "Solo Developer",
+    year: "2026",
+    tags: ["Next.js", "Vercel", "// TODO: confirm backend/database"],
+    featured: true,
+    status: "In Progress",
+    links: {
+      live: "https://haleema-xi.vercel.app/",
+    },
+    images: {
+      hero: "/haleema-thumb.png", // TODO: update with real screenshot
+      gallery: [],
+    },
+    problem: "Local Bahraini brands and small businesses don't have an affordable, direct way to book UGC creators without going through an agency — a local UGC marketplace like this doesn't really exist yet in Bahrain.",
+    solution: "Built a guided campaign-brief flow with an assistant persona (Haleema) that walks brands from brief to creator match to delivery, plus a tiered pricing system based on follower count (Silver/Gold/Pearl) so pricing is transparent up front.",
+    impact: [
+      { metric: "Status", value: "In Progress" },
+      { metric: "Market", value: "Bahrain UGC" },
+    ],
+    keyFeatures: [
+      "Guided multi-step brief flow with assistant persona",
+      "Creator matching UI",
+      "Tiered pricing model (Silver/Gold/Pearl)",
+      "Separate brand and creator onboarding/login flows",
+    ],
+    challenges: [
+      "Designing an intuitive multi-step flow for users unfamiliar with UGC",
+      "Handling two distinct user types (brands and creators) within the same platform",
+      "Structuring the database to manage complex brief and match states",
+    ],
+    learnings: [
+      "Building marketplace dynamics and dual-sided onboarding",
+      "Simplifying complex agency processes into a self-serve digital product",
+    ],
+    techStack: ["Next.js", "Vercel", "// TODO: confirm backend/database"],
+  }
 ];

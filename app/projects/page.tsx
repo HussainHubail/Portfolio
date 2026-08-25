@@ -125,8 +125,13 @@ export default function ProjectsPage() {
                         className="object-cover transition-transform group-hover:scale-105"
                       />
                       {project.featured && (
-                        <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-primary text-primary-foreground text-xs font-medium">
+                        <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-primary text-primary-foreground text-xs font-medium shadow-sm">
                           Featured
+                        </div>
+                      )}
+                      {project.status && (
+                        <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium shadow-sm border border-border">
+                          {project.status}
                         </div>
                       )}
                     </div>

@@ -137,6 +137,12 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                   <span className="font-medium">Year:</span>
                   <span className="text-white/90">{project.year}</span>
                 </div>
+                {project.status && (
+                  <div className="flex items-center gap-2 text-sm drop-shadow">
+                    <span className="font-medium">Status:</span>
+                    <span className="text-white/90 bg-white/20 px-2 py-0.5 rounded-md">{project.status}</span>
+                  </div>
+                )}
               </div>
             </motion.div>
           </div>

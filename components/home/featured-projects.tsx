@@ -29,6 +29,11 @@ export function FeaturedProjects() {
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                {project.status && (
+                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-secondary/80 backdrop-blur-md text-secondary-foreground text-xs font-medium shadow-sm border border-border">
+                    {project.status}
+                  </div>
+                )}
               </Link>
 
               <CardHeader className="space-y-1">
