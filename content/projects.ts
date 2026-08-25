@@ -197,7 +197,7 @@ export const projects: Project[] = [
       live: "https://www.attentioncreators.com/",
     },
     images: {
-      hero: "/attention-media-thumb.png", // TODO: update with real screenshot
+      hero: "/attention-media-thumb.png",
       gallery: [],
     },
     problem: "The agency needed a site that could actually prove results instead of just claiming them, and needed to look premium enough to justify a monthly retainer with no fixed package.",
@@ -239,7 +239,7 @@ export const projects: Project[] = [
       live: "https://haleema-xi.vercel.app/",
     },
     images: {
-      hero: "/haleema-thumb.png", // TODO: update with real screenshot
+      hero: "/haleema-thumb.png",
       gallery: [],
     },
     problem: "Local Bahraini brands and small businesses don't have an affordable, direct way to book UGC creators without going through an agency — a local UGC marketplace like this doesn't really exist yet in Bahrain.",
