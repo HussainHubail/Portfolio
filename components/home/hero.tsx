@@ -30,24 +30,13 @@ export function Hero() {
       duration: 1,
     }, "-=0.5");
 
-    // Floating animation for the name
-    gsap.to(nameRef.current, {
-      y: -10,
-      duration: 2,
-      repeat: -1,
-      yoyo: true,
-      ease: "sine.inOut",
-    });
-
-    // Scramble text for the role
+    // Clean fade in for the role instead of scrambleText
     gsap.from(".hero-role", {
-      duration: 1.5,
-      scrambleText: {
-        text: profile.role,
-        chars: "01",
-        revealDelay: 0.5,
-        speed: 0.3,
-      },
+      duration: 1,
+      y: 20,
+      opacity: 0,
+      ease: "power2.out",
+      delay: 0.5,
     });
 
     // Parallax effect on mouse move
@@ -56,8 +45,7 @@ export function Hero() {
       const xPos = (clientX / window.innerWidth - 0.5) * 30;
       const yPos = (clientY / window.innerHeight - 0.5) * 30;
 
-      gsap.to(".bg-parallax-1", { x: xPos, y: yPos, duration: 1 });
-      gsap.to(".bg-parallax-2", { x: -xPos, y: -yPos, duration: 1 });
+      gsap.to(".bg-parallax", { x: xPos, y: yPos, duration: 1 });
     };
 
     window.addEventListener("mousemove", handleMouseMove);
@@ -67,19 +55,17 @@ export function Hero() {
   return (
     <section ref={containerRef} className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
       <SpotlightCursor />
-      {/* Background Gradient */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-purple-500/5 to-background" />
-        <div className="bg-parallax-1 absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
-        <div className="bg-parallax-2 absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
+      {/* Clean Background */}
+      <div className="absolute inset-0 -z-10 bg-background">
+        <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
       </div>
 
       <div className="section-container hero-content">
         <div className="max-w-4xl mx-auto text-center">
           {/* Greeting */}
           <div className="mb-6">
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
-              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted text-muted-foreground text-sm font-medium border border-border">
+              <span className="w-2 h-2 rounded-full bg-green-500" />
               {profile.availability}
             </span>
           </div>
@@ -87,20 +73,19 @@ export function Hero() {
           {/* Name */}
           <h1 className="text-5xl md:text-8xl font-bold mb-6 text-balance tracking-tighter">
             Hi, I'm{" "}
-            <span ref={nameRef} className="gradient-text inline-block">
+            <span ref={nameRef} className="text-foreground inline-block">
               {profile.name.split(" ")[0]}
             </span>
           </h1>
 
           {/* Role */}
-          <h2 className="hero-role text-2xl md:text-3xl font-semibold text-muted-foreground mb-4 uppercase tracking-widest opacity-80 min-h-[1.5em]">
+          <h2 className="hero-role text-2xl md:text-3xl font-medium text-muted-foreground mb-4 tracking-tight min-h-[1.5em]">
             {profile.role}
           </h2>
 
           {/* Currently Status Chip */}
           <div className="mb-8 flex justify-center">
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-sm font-medium border border-green-500/20 max-w-full flex-wrap justify-center">
-              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse flex-shrink-0" />
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted text-muted-foreground text-sm font-medium border border-border max-w-full flex-wrap justify-center">
               <span className="text-center">🎓 Senior year at Bahrain Polytechnic · Open to full-time roles</span>
             </span>
           </div>
