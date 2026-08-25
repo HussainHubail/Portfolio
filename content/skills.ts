@@ -70,11 +70,11 @@ export interface Education {
 
 export const education: Education[] = [
   {
-    degree: "ICT Database Systems (Senior Year - 5th Year)",
+    degree: "BSc in ICT Database Systems",
     institution: "Bahrain Polytechnic",
-    year: "2021 - Present",
+    year: "2021 - 2026",
     description:
-      "Senior year student specializing in database systems and ICT. Focused on database design, web development, and practical application of technology.",
+      "Graduate specialized in database systems and ICT. Focused on database design, web development, and practical application of technology.",
   },
 ];
 

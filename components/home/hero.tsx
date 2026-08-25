@@ -86,7 +86,7 @@ export function Hero() {
           {/* Currently Status Chip */}
           <div className="mb-8 flex justify-center">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted text-muted-foreground text-sm font-medium border border-border max-w-full flex-wrap justify-center">
-              <span className="text-center">🎓 Senior year at Bahrain Polytechnic · Open to full-time roles</span>
+              <span className="text-center">🎓 Graduate from Bahrain Polytechnic · Open to full-time roles</span>
             </span>
           </div>
 

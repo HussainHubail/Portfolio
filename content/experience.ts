@@ -15,11 +15,11 @@ export const experiences: Experience[] = [
   {
     id: "bahrain-polytechnic",
     company: "Bahrain Polytechnic",
-    role: "ICT Database Systems (Senior Year)",
+    role: "ICT Database Systems Graduate",
     startDate: "2021-09",
-    endDate: null,
+    endDate: "2026-06",
     location: "Bahrain",
-    description: "Senior year student in ICT Database Systems program, building practical skills in database design, web development, and system implementation.",
+    description: "Graduate from the ICT Database Systems program, equipped with practical skills in database design, web development, and system implementation.",
     achievements: [
       "Built database-driven coursework and web-based projects",
       "Practiced SQL querying, schema design, and documentation",
