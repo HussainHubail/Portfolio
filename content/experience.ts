@@ -39,6 +39,29 @@ export const experiences: Experience[] = [
     type: "education",
   },
   {
+    id: "eazy-financial",
+    company: "Eazy Financial Services",
+    role: "Software Development Intern",
+    startDate: "2026-01",
+    endDate: "2026-06", // TODO: Update with exact months if needed
+    location: "Bahrain",
+    description: "Developed full-stack financial web modules and integrated APIs for production services used by live customers.",
+    achievements: [
+      "Developed and maintained full-stack financial web modules using Angular (frontend) and Java Spring Boot (backend)",
+      "Contributed directly to production services used by live customers",
+      "Integrated RESTful APIs into a microservices architecture, ensuring high-availability data flows between financial services",
+      "Maintained strict security and compliance standards",
+    ],
+    technologies: [
+      "Angular",
+      "Java",
+      "Spring Boot",
+      "RESTful APIs",
+      "Microservices",
+    ],
+    type: "work",
+  },
+  {
     id: "freelance-developer",
     company: "Independent Freelance",
     role: "Freelance Web Developer",

@@ -44,12 +44,15 @@ export const profile: Profile = {
     { name: "HTML", category: "Frontend" },
     { name: "CSS", category: "Frontend" },
     { name: "JavaScript", category: "Frontend" },
+    { name: "Angular", category: "Frontend" },
     
     // Backend
     { name: "Node.js", category: "Backend" },
     { name: "Express", category: "Backend" },
     { name: "PostgreSQL", category: "Backend" },
     { name: "Supabase", category: "Backend" },
+    { name: "Java", category: "Backend" },
+    { name: "Spring Boot", category: "Backend" },
     { name: "REST APIs", category: "Backend" },
     
     // DevOps & Tools
