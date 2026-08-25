@@ -41,23 +41,21 @@ export const profile: Profile = {
     { name: "Next.js", category: "Frontend" },
     { name: "TypeScript", category: "Frontend" },
     { name: "Tailwind CSS", category: "Frontend" },
-    { name: "Vue.js", category: "Frontend" },
-    { name: "Framer Motion", category: "Frontend" },
+    { name: "HTML", category: "Frontend" },
+    { name: "CSS", category: "Frontend" },
+    { name: "JavaScript", category: "Frontend" },
     
     // Backend
     { name: "Node.js", category: "Backend" },
     { name: "Express", category: "Backend" },
     { name: "PostgreSQL", category: "Backend" },
-    { name: "MongoDB", category: "Backend" },
-    { name: "GraphQL", category: "Backend" },
+    { name: "Supabase", category: "Backend" },
     { name: "REST APIs", category: "Backend" },
     
     // DevOps & Tools
-    { name: "Docker", category: "DevOps" },
-    { name: "AWS", category: "DevOps" },
     { name: "Vercel", category: "DevOps" },
+    { name: "Cloudflare R2", category: "DevOps" },
     { name: "GitHub Actions", category: "DevOps" },
     { name: "Git", category: "Tools" },
-    { name: "Figma", category: "Tools" },
   ],
 };

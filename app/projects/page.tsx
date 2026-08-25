@@ -176,7 +176,7 @@ export default function ProjectsPage() {
                             onClick={(e) => e.stopPropagation()}
                           >
                             <ExternalLink className="w-4 h-4" />
-                            Live
+                            {project.links.live.endsWith(".mp4") ? "Watch Demo" : "Live"}
                           </a>
                         </Button>
                       )}

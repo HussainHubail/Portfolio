@@ -69,7 +69,7 @@ export function FeaturedProjects() {
                       rel="noopener noreferrer"
                     >
                       <ExternalLink className="w-4 h-4 mr-2" />
-                      Live Demo
+                      {project.links.live.endsWith(".mp4") ? "Watch Demo" : "Live Demo"}
                     </a>
                   </Button>
                 )}

@@ -21,7 +21,7 @@ export default function AboutPage() {
         <Reveal direction="up">
           <SectionHeader
             title="Design. Code. Database."
-            description="A senior ICT student at Bahrain Polytechnic with 5 years of hands-on building experience."
+            description="A recent ICT Database Systems graduate from Bahrain Polytechnic with independent client experience."
           />
         </Reveal>
 

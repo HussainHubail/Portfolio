@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://your-domain.com
+Host: https://portfolio-tau-murex-63.vercel.app
 
 # Sitemaps
-Sitemap: https://your-domain.com/sitemap.xml
+Sitemap: https://portfolio-tau-murex-63.vercel.app/sitemap.xml

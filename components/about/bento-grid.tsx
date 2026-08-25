@@ -41,7 +41,7 @@ export function AboutBentoGrid() {
               {profile.bio}
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              I&apos;m a senior ICT student based in Bahrain who enjoys building things that actually work. Outside of coding, I spend time at the gym and gaming — both of which keep me sane. I&apos;m looking to join a team after graduation where I can grow as a developer and work on real problems.
+              I&apos;m a recent ICT graduate based in Bahrain who enjoys building things that actually work. Outside of coding, I spend time at the gym and gaming — both of which keep me sane. I&apos;m looking to join a team where I can grow as a developer and work on real problems.
             </p>
           </CardContent>
         </Card>
@@ -53,12 +53,12 @@ export function AboutBentoGrid() {
           <CardContent className="pt-6 grid grid-cols-2 gap-4 h-full">
             <div className="flex flex-col justify-center items-center text-center p-4 rounded-xl bg-muted/50">
               <GraduationCap className="w-6 h-6 mb-2 text-primary" />
-              <span className="text-2xl font-bold">Senior</span>
+              <span className="text-2xl font-bold">BSc Grad</span>
               <span className="text-xs uppercase tracking-widest text-muted-foreground">Status</span>
             </div>
             <div className="flex flex-col justify-center items-center text-center p-4 rounded-xl bg-muted/50">
               <Laptop className="w-6 h-6 mb-2 text-primary" />
-              <span className="text-2xl font-bold">5+ Yrs</span>
+              <span className="text-2xl font-bold">Freelance</span>
               <span className="text-xs uppercase tracking-widest text-muted-foreground">Experience</span>
             </div>
           </CardContent>
@@ -76,7 +76,7 @@ export function AboutBentoGrid() {
           </CardHeader>
           <CardContent>
             <div className="flex flex-wrap gap-2">
-              {["React", "Next.js", "PostgreSQL", "Node.js", "TypeScript"].map(s => (
+              {["React", "Next.js", "TypeScript", "Supabase", "Tailwind"].map(s => (
                 <Tag key={s} variant="secondary" className="bg-primary/10">{s}</Tag>
               ))}
             </div>
