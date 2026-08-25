@@ -12,7 +12,7 @@ const stats = [
   },
   {
     label: "Projects Shipped",
-    value: "5",
+    value: "6",
     icon: Code,
   },
   {

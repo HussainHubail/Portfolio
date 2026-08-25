@@ -264,5 +264,45 @@ export const projects: Project[] = [
       "Simplifying complex agency processes into a self-serve digital product",
     ],
     techStack: ["Next.js", "Vercel", "// TODO: confirm backend/database"],
+  },
+  {
+    slug: "basita",
+    title: "Basita",
+    description: "My own web dev brand/agency — I use it to package and sell the same kind of work I do for clients like Attention Media, with its own site, service pages, and process breakdown.",
+    longDescription: "Basita is my personal web development brand and agency. I created it to package and sell my freelance work in a structured way. Instead of doing one-off client sites without a clear framework, Basita provides structured service pages and a clear process breakdown so clients know exactly what they're getting.",
+    role: "Solo Founder & Developer",
+    year: "2026",
+    tags: ["Personal Brand", "Agency", "Next.js", "TypeScript"],
+    featured: true,
+    status: "Live",
+    links: {
+      live: "https://www.basita.online/",
+    },
+    images: {
+      hero: "/basita-thumb.png",
+      gallery: [],
+    },
+    problem: "I wanted a way to package my freelance dev work under a real brand instead of one-off client sites, with clear service offerings and a process clients could actually understand.",
+    solution: "Built a full agency site — service breakdown (websites, booking systems, SaaS platforms, mobile), a 4-step process page, a portfolio section pulling in real case studies (Relentic, Russian Learning App, The Barber), and a contact/inquiry form.",
+    impact: [
+      // TODO: confirm real metrics before publishing (Basita site claims 2K+ users, 50K+ sessions, 78% retention, 800+ bookings/month)
+      { metric: "Status", value: "Live" },
+      { metric: "Delivery", value: "Solo Built" },
+    ],
+    keyFeatures: [
+      "Service catalog with categorized offerings",
+      "Structured process page",
+      "Case study portfolio grid",
+      "Project inquiry form with budget/type fields",
+    ],
+    challenges: [
+      "Defining and structuring freelance services into clear, sellable packages",
+      "Designing an agency site that looks professional while being run solo",
+    ],
+    learnings: [
+      "Productizing freelance services",
+      "Building a personal brand identity",
+    ],
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS"],
   }
 ];
